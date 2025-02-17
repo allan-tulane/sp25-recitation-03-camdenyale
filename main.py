@@ -1,4 +1,4 @@
-"""
+`3"""
 CMPS 2200  Recitation 3.
 See recitation-03.md for details.
 """
@@ -49,12 +49,24 @@ def quadratic_multiply(x, y):
     return _quadratic_multiply(x,y).decimal_val
 
 def _quadratic_multiply(x, y):
-    ### TODO
-    pass
-    ###
+    xvec = x.binary_vec
+    yvec = y.binary_vec
 
-
+    xvec, yvec = pad(xvec, yvec)
     
+    # Base Case
+    if x.decimal_val <= 1 and y.decimal_val <=1:
+        return BinaryNumber(x.decimal_val * y.decimal_val)
+
+    x_left, x_right = split_number(xvec)
+    y_left, y_right = split_number(yvec)
+    left = bit_shift(_quadratic_multiply(x_left, y_left), len(xvec)).decimal_val
+    middle1 = _quadratic_multiply(x_left, y_right).decimal_val
+    middle2 = _quadratic_multiply(x_right, y_left).decimal_val
+    middle = bit_shift(BinaryNumber(middle1 + middle2), len(xvec) // 2).decimal_val
+    right = _quadratic_multiply(x_right, y_right).decimal_val
+    result = BinaryNumber(left + middle + right)
+    return result
     
 def test_quadratic_multiply(x, y, f):
     start = time.time()
