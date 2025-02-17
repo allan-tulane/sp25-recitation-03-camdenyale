@@ -54,7 +54,7 @@ def _quadratic_multiply(x, y):
     xvec, yvec = pad(xvec, yvec)
 
     # Base Case
-    if x.decimal_val <= 1 and y.decimal_val <=1:
+    if x.decimal_val <= 1 and y.decimal_val <= 1:
         return BinaryNumber(x.decimal_val * y.decimal_val)
 
     x_left, x_right = split_number(xvec)
