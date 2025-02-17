@@ -49,11 +49,10 @@ def quadratic_multiply(x, y):
     return _quadratic_multiply(x,y).decimal_val
 
 def _quadratic_multiply(x, y):
-    xvec = x.binary_vec
+    xvec= x.binary_vec
     yvec = y.binary_vec
-
     xvec, yvec = pad(xvec, yvec)
-    
+
     # Base Case
     if x.decimal_val <= 1 and y.decimal_val <=1:
         return BinaryNumber(x.decimal_val * y.decimal_val)
