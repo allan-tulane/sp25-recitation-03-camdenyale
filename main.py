@@ -1,4 +1,4 @@
-`3"""
+"""
 CMPS 2200  Recitation 3.
 See recitation-03.md for details.
 """
