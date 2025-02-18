@@ -12,7 +12,7 @@ class BinaryNumber:
         
     def __repr__(self):
         return('decimal=%d binary=%s' % (self.decimal_val, ''.join(self.binary_vec)))
-    
+
 
 ## Implement multiplication functions here. Note that you will have to
 ## ensure that x, y are appropriately sized binary vectors for a
